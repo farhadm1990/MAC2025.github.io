@@ -1,0 +1,633 @@
+---
+title: |
+  ![](Ku-logo.png){width=1in, height=1in}
+  
+  Bioinformatics and basic setups for MAC2025
+author: "Farhad M. Panah"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    # rmdformats::readthedown
+    # css: bootstrap.css
+    theme: default
+    #toc: true 
+    #number_sections: false
+    #includes:
+      #after_body: tabset-dropdown.html
+header-includes:
+  - |
+    ```{=latex}
+    \usepackage{fvextra}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+      breaksymbolleft={},
+      showspaces=false,
+      showtabs=false,
+      breaklines,
+      commandchars=\\{}
+    }
+    ```
+---
+
+
+
+```{r, setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE,
+                      message = FALSE,
+                      warning = FALSE, 
+                      cache = FALSE, include = TRUE, tidy.opts = list(width.cutoff = 60), 
+                      tidy = "styler",
+                      python.reticulate = FALSE)
+
+```
+
+<!-- 
+
+-->
+
+#  {.tabset .tabset-dropdown .tabset-fade .tabset-pills }
+
+## Home
+
+
+<div style="text-align: left; font-size: 20px; color: black; margin-top: 10%">
+<strong>**In this workflow the main steps for 16S rRNA gene amplicon data analysis in Qiime2 and R are presented. This toturial is prepared for MAC 2025 course at the University of Copenhagen, department of Food Science.**\n 
+Although the steps are curated for Oxford Nanopore Tech (ONT) sequencing, it was tested on Ilumina short reads as well.</strong>
+</div>
+
+## Steps in Qiime2
+
+
+<div style="text-align: center; font-size: 40px; color: darkmagenta;">
+<strong>**Steps in Qiime2**</strong>
+</div>
+
+
+
+### 1. Making manifest file.
+### This file is important for importing raw reads into Qiime2. The file is simply a tab-delimited text that has two colums (if we have paired-end reads); forward-absolute-filepath and reverse-absolute-filepath. Each column contains the absolute path to each reads of forward and reverse lane. 
+```{python, }
+
+#path to forward
+ls -f ~/microbiome_analysis_ku/data/*_R1_001.fastq.gz | sort -V > r1path
+#path to reverse
+ls -f ~/microbiome_analysis_ku/data/*_R2_001.fastq.gz | sort -V > r2path
+
+#checking if we have all pairs of forward and reverse reads
+diff -s <(cat r1path | cut -d_ -f4) <(cat r2path | cut -d_ -f4) #if the outcome is "identical", then we good :)
+
+#Cutting sample IDs from the path file (from either is good)
+cut -d_ -f4 r1path > SampleID
+
+#adding sample ids to paths
+paste SampleID r1path r2path > manifest
+
+#Binning ids and forward reverse columns together with tab-delimited seperation
+sed -i $'1 i\\\nsampleid \t forward-absolute-filepath \t reverse-absolute-filepath' manifest
+
+```
+
+
+### Some inference investigations of data
+
+```{python, inference}
+## Exploring the reads
+zcat ./data/MAC2025_iSeq001_S1_L001_R2_001.fastq.gz 
+
+
+zcat ./data/MAC2025_iSeq001_S1_L001_R2_001.fastq.gz | grep ^@FS10000714| cut -d ":" -f1 | wc -l
+
+wc -l ./data/*_R1_001.fastq.gz | awk '{$1=$1};1'| cut -d" " -f1|datamash min 1
+wc -l ./data/*_R1_001.fastq.gz | awk '{$1=$1};1'| cut -d" " -f1|head -n -1|datamash max 1
+wc -l ./data/*_R1_001.fastq.gz | awk '{$1=$1};1'| cut -d" " -f1|head -n -1|datamash mean 1
+
+#reverse
+wc -l ./data/*_R2_001.fastq.gz| awk '{$1=$1};1' | cut -d " " -f1|datamash min 1
+wc -l ./data/*_R2_001.fastq.gz| awk '{$1=$1};1' | cut -d " " -f1|datamash max 1
+wc -l ./data/*_R2_001.fastq.gz| awk '{$1=$1};1' | cut -d " " -f1|datamash mean 1
+
+#searching for primers
+
+zcat ./data/MAC2025_iSeq001_S1_L001_R2_001.fastq.gz | head
+zgrep '^CCTACGGG.GGC.GCAG' ./data/MAC2022_iSeq001_S1_L001_R2_001.fastq.gz | wc -l
+zgrep '^GACTAC..GGGTATCTAATCC' ./data/MAC2022_iSeq001_S1_L001_R2_001.fastq.gz | wc -l
+
+#Eventually you can use Seqkit package
+
+seqkit stats ./data/MAC2025_iSeq001_S1_L001_R2_001.fastq.gz
+
+```
+
+### 2. Importing reads into Qiime2 using the created manifest file
+```{python}
+
+source activate qiime2.X
+qiime tools import \
+  --type "SampleData[PairedEndSequencesWithQuality]" \
+  --input-format PairedEndFastqManifestPhred33V2 \
+  --input-path ~/MAC2025/manifest.tsv \                    # link to the folder in which my manifest file is located
+  --output-path ~/MAC2025/demuxed_MAC23.qza                 # link to the path where I want my demultiplexed data to be exported in
+
+```
+
+### 3. Visualzing inferencial statistics of the demultiplexed reads
+```{python}
+qiime demux summarize \
+  --i-data ./demuxed_mac23.qza \
+  --o-visualization ./demuxed_mac23.qzv
+
+```
+
+### 4. Filtering, dereplication, sample inference, chimera identification, and merging of paired-end reads by DADA2 package in qiime2.
+
+```{python}
+qiime dada2 denoise-paired \
+--i-demultiplexed-seqs ~/demuxed_mac23.qza \         #the input file for denoising is our demultiplexed pairedEnd reads that was generated in the previous step.
+--p-trim-left-f 17 \                                        #length of my forward primer (17 nt) 
+--p-trim-left-r 21 \                                        #length of my reverse primer (21 nt)
+--p-trunc-len-f 260 \                                       #truncation length for forward reads. I.e. we truncate reads over 260 base since their quality started dropping from this point onwards. 
+--p-trunc-len-r 220 \                                       #truncation length for reverse reads. I.e. we truncate reads over 220 base since their quality started dropping from this point onwards. 
+--o-table ~/count_table.qza \                      #the ASV count table
+--o-representative-sequences ~/repseqs.qza \ #the representative sequences for in each read
+--o-denoising-stats ~/denoising_stats.qza \  #the status of the denoising process in a full catalogue
+--p-n-threads 10
+```
+
+### 4.1. Visualizing the count table
+
+```{python}
+qiime feature-table summarize --i-table ~/count_table.qza \ #The ASV table as the input
+--m-sample-metadata-file ~/metadataA.tsv \           #The metadata as the input
+--o-visualization ./table.qzv                         #The qzv format of our ASV table
+ 
+```
+
+### 4.2. Visualizing the representative sequences 
+
+```{python}
+qiime feature-table tabulate-seqs \
+--i-data ~/repseqs.qza \
+--o-visualization ~/repseqs.qzv
+```
+
+### 4.3. Visualizing denoising statistics
+
+```{python}
+qiime metadata tabulate \
+--m-input-file ./denoising_stats.qza \
+--o-visualization ./denoising_stats.qzv
+```
+
+#### 5. Training a primer-based region-specific classifier for taxonomic classification by Naïve-Bayes method (in Qiime2)
+
+```{python}
+qiime feature-classifier fit-classifier-naive-bayes \   # here you can train your classifier based on a Naive-Bayes method
+--i-reference-reads ~/derepseqs-uniq-341f-805r.qza \    # Dereplicated sequences based on the primer set as input
+--i-reference-taxonomy ~/dereptaxa-uniq-341f-805r.qza\  # Dereplicated taxonomic annotations based on the primer set as input
+ --o-classifier ~/silva-classifier-primered4.qza  
+
+# Running the classifier
+qiime feature-classifier classify-sklearn \                               # Sklearn package for classification
+--i-reads ~/repseqs.qza \                                        # Representative sequences as the (input)
+--i-classifier ~/classifier/silva138-classifier-341f-805r.qza \  # Our costumized SILVA 138 classifier (input)
+--o-classification ~/taxonomy.qza \                     # The taxonomic annotation linked to the repseqs (output)
+--p-n-jobs 10                                                             # The number of cores/jobs
+
+```
+
+### 5.1. Visualizing taxonomic table
+
+```{python}
+qiime metadata tabulate \
+--m-input-file ~/Taxonomy/taxonomy.qza \
+--o-visualization ~/Taxonomy/taxonomy.qzv
+```
+
+
+### 6. Creating a phylogenetic tree using SATE-enabled phyhlogenetic placement (SEPP) method for diversity analysis
+
+
+```{python}
+
+qiime fragment-insertion sepp \                             # The package for generating the phylogenetic tree
+--i-representative-sequences ~/repseqs.qza \                # Our representative sequences (input)
+--i-reference-database ~/epp-ref-gg-13-8.qza \              # The SEPP sequence dataset (input)
+--o-tree ~/tree.qza \                                       # The rooted tree (output)
+--o-placements ~/dss/tree-placements.qza \
+--p-threads 10  
+
+```
+
+
+## Steps in R
+
+<div style="text-align: center; font-size: 40px; color: darkmagenta;">
+<strong>**Steps in R**</strong>
+</div>
+
+
+
+
+
+### 1. Installation and loading libraries
+```{r, installing}
+
+setwd("/path/to/MAC2025")
+
+#Update R
+install.packages('installr')
+installr::updateR()
+
+# github.pkg <- c("jfukuyama/phyloseqGraphTest", "jbisanz/qiime2R") 
+bioc.pkg <- c("phyloseq", "DESeq2")
+
+cran.pkg = c("tidyverse", "readr", "ape", "picante", "glue", "vegan", "devtools", "ggrepel", "reshape2", "BiocManager", "lme4", 'broom', "pheatmap", "patchwork")
+
+inst.pkg <- cran.pkg %in% installed.packages()
+
+
+
+if (any(!inst.pkg)){ install.packages(cran.pkg[!inst.pkg],repos = "http://cran.rstudio.com/") } 
+ 
+# inst.pkg <- github.pkg %in% installed.packages() 
+# if (any(!inst.pkg)){ devtools::install_github(github.pkg[!inst.pkg], force = TRUE) } 
+
+inst.pkg <- bioc.pkg %in% installed.packages() 
+if(any(!inst.pkg)){ BiocManager::install(bioc.pkg[!inst.pkg])
+}
+```
+
+
+
+
+
+```{r, loading, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+pkg = c("tidyverse", "phyloseq", "DESeq2" , "gridExtra", "BiocManager", 
+"vegan",  "ggrepel", "reshape2", "pheatmap", "glue", "ape", "readr", "vegan", "patchwork")
+
+for(i in 1:length(pkg)){
+
+  library(pkg[i], character.only = TRUE, verbose = FALSE, attach.required = FALSE)
+
+}
+
+
+
+```
+
+### Training on data wrangling, data tyding and data visualiziation by tidyverse package
+
+#### Data transformation with dplyr 
+
+```{r}
+install.packages('nycflights13')
+
+variable_test = "Farhad"
+
+nr = c(1, 2, 3, 4)
+length(nrA)
+nrA = c(10, -1, 40, 20)
+
+char = c("Lui", "Guppy", "Shiva", "Malu")
+
+(df = data.frame(col1 = nr, col2 = nrA, Names = char))
+
+dim(df)
+
+df[,3] <- NULL
+df
+as.matrix(df)
+
+
+
+
+library(nycflights13)
+
+
+str(nycflights13::flights)
+
+dim(flights)
+
+nycflights13::flights %>% dim()
+nycflights13::flights %>% as.data.frame()
+
+
+
+# • int stands for integers.
+# • dbl stands for doubles, or real numbers.
+# • chr stands for character vectors, or strings. • dttm stands for date-times (a date + a time).
+
+
+names(flights)
+
+```
+
+
+#### filter()
+
+##### Here we use comarison operators: >, >=, <, <=, != (not equal), and == (equal)
+
+```{r}
+
+flights %>% filter( month == 1, day == 1, year >= 2013, month %in% c(1, 3, 8))
+
+flights |> filter( month == 1, day == 1)
+
+
+
+(dec25 <- flights %>% filter(month == 12, day == 25))
+
+#  or
+flights %>% filter( month == 11 | month == 12)
+# ?? filter(flights, month == 11 | 12)
+flights %>% filter( month %in% c(11, 12)) # safer way
+
+# and 
+# De Morgan’s law: !(x & y) is the same as !x | !y, and !(x | y) is the same as !x & !y
+filter(flights, !(arr_delay > 120 | dep_delay > 120))
+filter(flights, arr_delay <= 120, dep_delay <= 120)
+
+```
+
+#### arrange()
+```{r}
+
+arrange(flights, desc(month))
+
+
+
+```
+
+#### mutate() 
+```{r}
+flights %>% mutate(junk = paste0("I added", month + day), junk = NULL ) %>% rename(Day = day) 
+
+```
+
+
+
+#### select()
+```{r}
+flights %>% select( year, month, day)
+
+select(flights, year:day)
+
+
+
+select(flights, -(year:day))
+
+flights %>% select(num_ar('fl'))
+
+# • starts_with("abc") matches names that begin with “abc”. • ends_with("xyz") matches names that end with “xyz”.
+# • contains("ijk") matches names that contain “ijk”.
+# • matches("(.)\\1") matches any variables that contain repeated characters.
+# • num_range("x", 1:3) matches x1, x2, and x3.
+# ends_with()
+# one_of()
+
+select(flights, time_hour, air_time, everything())
+
+# If you only want to keep the new variables, use transmute():
+transmute(flights,
+  gain = arr_delay - dep_delay,
+  hours = air_time / 60,
+  gain_per_hour = gain / hours
+)
+
+ transmute(flights,
+          dep_time,
+          hour = dep_time %/% 100, #integer division
+          minute = dep_time %% 100 # reminder
+)
+```
+
+#### group_by() and summarise()
+```{r}
+flights %>% group_by( year, month, day) %>% filter(!is.na(arr_delay)) %>% summarise(delay = mean(dep_delay, na.rm = TRUE))
+
+df = as.data.frame(flights)
+rownames(df) <- NULL
+
+rownames(df) <- paste0("rn_", 1:dim(flights)[1])
+
+
+
+index <- df %>% group_by(day) %>% summarise(n = sum(day)) %>% mutate(sanity = ifelse(n  >11036, TRUE, FALSE))  %>% filter(sanity == TRUE) %>% select(day) %>% pull
+
+
+
+group_by(flights, dest) %>% 
+summarize(
+count = n(), dist = mean(distance, na.rm = TRUE),
+delay = mean(arr_delay, na.rm = TRUE) ) %>% 
+filter(count > 20, dest !="ABQ") %>% 
+
+ggplot(mapping = aes(x = dist, y = delay)) +
+      geom_point(aes(size = count, color = dest), alpha = .98, show.legend = F) +
+geom_smooth() + theme_bw()
+
+```
+
+#### ggplot
+
+```{r}
+mpg %>% ggplot(aes(x = displ, y = model)) +
+geom_boxplot() 
+
+```
+
+```{r}
+
+save.image('./data/r.RData')
+ load("./data/r.RData")
+```
+
+
+### 2. Importing artifacts from qiime2 to r
+```{r, qiime2R}
+
+#making phyloseq objects from qiime files
+ps <- qiime2R::qza_to_phyloseq(features = "~/data/ccd/table-ccd.qza", 
+                       taxonomy = "~/data/ccd/taxonomy-ccd.qza", 
+                     tree = "./tree-ccd.qza")
+repseqs <- qiime2R::read_qza("~/data/ccd/repseqa.qza")$data
+#we need to merge the refseqs like this since in above fun, there is no argument for that
+ps= merge_phyloseq(ps, repseqs)
+
+# Metadata
+#importing the metadata
+metadata <- read.table("./metadata.tsv", header = TRUE, sep = "\t")
+
+#converting non numeric and non-logical variables to factors
+for(i in seq_len(ncol(metadata))) {
+ if(!is.numeric(metadata[[i]]) && !is.logical(metadata[[i]]) && !is.integer(metadata[[i]])) {
+    metadata[[i]] = as.factor(metadata[[i]])  } else {
+     metadata[[i]]
+ } 
+}
+
+#changing sample names
+asvs <- otu_table(ps) %>% as.matrix
+
+#Merging all artifacts
+pst = phyloseq(otu_table(asvs, taxa_are_rows = TRUE), phy_tree(ps), sample_data(metadata), refseq(ps), tax_table(ps)) 
+
+```
+
+### Importing Illumina outputs into r
+```{r}
+ft = read_tsv('./MAC2025.github.io/data/illumina/Results_MAC23_MAC96_S96/OTU-tables/zOTU_table_GG.txt' ) %>% data.frame()
+ft <- column_to_rownames(ft, "X.OTU.ID")
+
+tx = ft %>% as.data.frame() %>% select(81)
+
+ft[,dim(ft)[2]] <-NULL
+
+tx = tidyr::separate(tx, col = taxonomy, into =c("Kingdom", "Phylum", 
+            "Class", "Order", "Family", 
+            "Genus", "Species"), 
+            sep = ';') %>% as.matrix()
+
+tx = apply(tx, 2, function(x) {gsub("^.__", "", x)})
+
+colnames(ft) <- sapply(colnames(ft), function(x) {gsub(".*[S]([0-9]+)$", "BRK\\1", x)}) %>% as.vector()
+
+mt = read.table('./data/metadata.txt', header = TRUE) 
+mt
+data.frame(barcode = colnames(ft))
+
+mt[!rownames(mt) %in% colnames(ft),] %>% select(barcode) %>% pull()
+
+tr$tip.label %>% length()
+tr = ggtree::read.tree('./MAC2025.github.io/data/illumina/Results_MAC23_MAC96_S96/zOTU.tree') 
+
+phyloseq(otu_table(ft, TRUE), phy_tree(tr), tax_table(tx)) %>% ggtree(layout = "circular", aes(color = Phylum))
+```
+
+
+
+### Importing ONT outputs into R
+```{r, ONT,  eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#setwd('/home/hackion/Dropbox/Old-2gb/postdoc/MAC2025')
+
+read.table("./data/count_matrix.tsv", sep = "\t", header  = T) 
+
+#Reading feature table
+ft = read_tsv('./data/count_matrix.tsv') %>% 
+as.data.frame() %>% 
+column_to_rownames('OTU_ID') 
+
+ft <-ft[complete.cases(ft),]
+
+
+
+# Reading taxonomy table
+tx = read.table('./data/taxonomy.tsv', 
+                header = F, 
+                sep = '\t', 
+                row.names = 1)
+names(tx)
+colnames(tx)
+# Parse the taxonomy
+tx = tidyr::separate(data = tx, 
+            col = V2, 
+            into = c("Kingdom", "Phylum", 
+            "Class", "Order", "Family", 
+            "Genus", "Species"), 
+            sep = ';') %>% 
+            apply(2, function(x) {gsub("^.__", "", x)})
+
+
+#reading metadata
+mt = read.table('./data/metadata.txt', header = TRUE) 
+
+
+# Reading rep_seqs
+seqs = Biostrings::readDNAStringSet('./data/rep_seqs.fasta')
+
+
+
+# Reading the tree
+tr = ggtree::read.tree('./data/tree.nwk')
+
+pst = phyloseq(
+  otu_table(
+    ft, taxa_are_rows=T
+    ),
+  sample_data(mt),
+  tax_table(tx %>% as.matrix()),
+  phy_tree(tr),
+  refseq(seqs)
+  )
+
+
+ps_rel =transform_sample_counts(pst, function(x){x/sum(x)})
+
+ps_rel %>% plot_bar() + 
+geom_col(aes(fill = Phylum))
+
+sum(rowSums(pst@otu_table)==0)
+```
+
+### 3. Filtering and preprocessing of reads
+```{r,  eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+#removing unassigned and NA phylum taxa
+pst <- subset_taxa(pst, !is.na(Phylum)  & !Phylum %in% c("", "uncharacterized", "unassigned") & !Kingdom == "k__Eukaryota")
+
+tax_table(pst) %>% data.frame() %>% dplyr::select(Kingdom) %>% unique()
+#keeping only bacterial kingdom
+pst <- subset_taxa(pst, Kingdom %in% "Bacteria")
+
+#subset_*()
+#prune_*()
+ps = transform_sample_counts(pst, function(x){x/sum(x)})
+sample_data(ps)
+```
+
+```{r}
+psmelt(ps) %>% select(Phylum, group, Sample, Abundance) %>% group_by(Phylum, group) %>% summarize(re_abund = sum(Abundance), .groups = 'drop') %>% 
+ggplot(aes(x = group, y = re_abund, fill = Phylum)) +
+geom_col(position = 'stack')
+
+```
+
+### GOOD NEWS: [Microloop](https://microloop.unseenbio.com/) is gonna cover us this year
+
+
+
+## Data
+
+
+[Feature table](https://github.com/farhadm1990/MAC2025.github.io/blob/main/data/count_matrix.tsv)
+
+[Taxonomy table](https://github.com/farhadm1990/MAC2025.github.io/blob/main/data/taxonomy.tsv)
+
+[Meta data](https://github.com/farhadm1990/MAC2025.github.io/blob/main/data/metadata.txt)
+
+[Representative sequences](https://github.com/farhadm1990/MAC2025.github.io/blob/main/data/rep_seqs.fasta)
+
+[Phylogenetic tree](https://github.com/farhadm1990/MAC2025.github.io/blob/main/data/tree.nwk)
+
+[ONT fastq files](https://github.com/farhadm1990/MAC2025.github.io/tree/main/data/fastq_mac)
+
+[Illumina results](https://github.com/farhadm1990/MAC2025.github.io/tree/main/data/illumina/Results_MAC23_MAC96_S96)
+
+## Contact
+ 
+
+
+<div style="text-align: left; font-size: 70px; color: darkmagenta; margin-top: 5%">
+<strong>**Author: farhad@food.ku.dk**</strong>
+</div>
+
+<div style="text-align: left; font-size: 70px; color: darkmagenta;">
+<strong>**Course responsible: krych@food.ku.dk**</strong>
+</div>
+
+#
+
+<div style="text-align: center; font-size: 20px; color: black; margin-top: 30%">
+<strong>Created and deployed by Farhad M. Panah</strong>
+</div>
+

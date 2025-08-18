@@ -1,0 +1,42 @@
+sample_id	Group	well	Mouse_number	Type	treatment
+BRK97	A1	1A	1	Mouse faeces	Control
+BRK98	A2	1B	2	Mouse faeces	Control
+BRK99	A3	1C	3	Mouse faeces	Control
+BRK100	A4	1D	4	Mouse faeces	Control
+BRK101	A5	1E	5	Mouse faeces	Control
+BRK102	A6	1F	6	Mouse faeces	Control
+BRK103	A7	1G	7	Mouse faeces	Ascaris
+BRK104	A8	1H	8	Mouse faeces	Ascaris
+BRK105	A9	2A	9	Mouse faeces	Ascaris
+BRK106	A10	2B	10	Mouse faeces	Ascaris
+BRK107	A11	2C	11	Mouse faeces	Ascaris
+BRK108	A12	2D	12	Mouse faeces	Ascaris
+BRK109	A13	2E	13	Mouse faeces	Ascaris + E. faecium
+BRK110	A14	2F	14	Mouse faeces	Ascaris + E. faecium
+BRK111	A15	2G	15	Mouse faeces	Ascaris + E. faecium
+BRK112	A16	2H	16	Mouse faeces	Ascaris + E. faecium
+BRK113	A17	3A	17	Mouse faeces	Ascaris + E. faecium
+BRK114	A18	3B	18	Mouse faeces	Ascaris + E. faecium
+BRK115	A+	3C		Mock	Positive control
+BRK116	A-	3D		MilliQ H2O	Negative control
+BRK117	TM1	3E	1	Mouse faeces	Control
+BRK118	TM2	3F	2	Mouse faeces	Control
+BRK119	TM3	3G	3	Mouse faeces	Control
+BRK120	TM4	3H	4	Mouse faeces	Control
+BRK121	TM5	4A	5	Mouse faeces	Control
+BRK122	TM6	4B	6	Mouse faeces	Control
+BRK123	TM7	4C	7	Mouse faeces	T. Muris
+BRK124	TM8	4D	8	Mouse faeces	T. Muris
+BRK125	TM9	4E	9	Mouse faeces	T. Muris
+BRK126	TM10	4F	10	Mouse faeces	T. Muris
+BRK127	TM11	4G	11	Mouse faeces	T. Muris
+BRK128	TM12	4H	12	Mouse faeces	T. Muris
+BRK129	TM13	5A	13	Mouse faeces	T. Muris + L. Johnsonii
+BRK130	TM14	5B	14	Mouse faeces	T. Muris + L. Johnsonii
+BRK131	TM15	5C	15	Mouse faeces	T. Muris + L. Johnsonii
+BRK132	TM16	5D	16	Mouse faeces	T. Muris + L. Johnsonii
+BRK133	TM17	5E	17	Mouse faeces	T. Muris + L. Johnsonii
+BRK134	TM18	5F	18	Mouse faeces	T. Muris + L. Johnsonii
+BRK135	TM+	5G		Mock	Positive control
+BRK136	TM-	5H		MilliQ	Negative control
+BRK137	PCR2NegContr	6A		MilliQ + 2x PCRBIO Ultra Mix + ONT UMI barcode	PCA2 NegControl

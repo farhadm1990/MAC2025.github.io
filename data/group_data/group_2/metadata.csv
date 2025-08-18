@@ -1,0 +1,193 @@
+BRK;BRKSET;SEQRUN;PLATE;RAW;XYLAN(Y/N);SEAWEED(Y/N);FERMENTED;SUBSTRATE;ANIMAL;DONOR;CONANDO;UNIQUES;PAIRTAG;SAMPID
+BRK01;1;1;1;Xylan;y;n;Unfermented;XYL2;Human;B;HumanB;XYL2 HumanB;DUP1;s57
+BRK02;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP2299;Human;A;HumanA;XYL2 EP2299 HumanA;DUP2;s110
+BRK03;1;1;1;Xylan + Soybean;y;n;Fermented;XYL2 EP200;Human;B;HumanB;XYL2 EP200 HumanB;DUP3;s105
+BRK04;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;B;HumanB;XYL1 EP1199 HumanB;DUP4;s75
+BRK05;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYL1 EP2299;Human;A;HumanA;XYL1 EP2299 HumanA;DUP5;s85
+BRK06;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYL1 EP100;Human;A;HumanA;XYL1 EP100 HumanA;DUP6;s67
+BRK07;1;1;1;Xylan + Soybean;y;n;Fermented;XYL1 EP200;Human;A;HumanA;XYL1 EP200 HumanA;DUP7;s80
+BRK08;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;C;HumanC;XYL1 EP1199 HumanC;DUP8;s77
+BRK09;1;1;1;Xylan + Soybean;y;n;Fermented;XYLC EP200;Human;B;HumanB;XYLC EP200 HumanB;DUP9;s129
+BRK10;1;1;1;Xylan;y;n;Unfermented;XYLC;Human;B;HumanB;XYLC HumanB;DUP10;s64
+BRK11;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYC EP100;Human;C;HumanC;XYC EP100 HumanC;DUP11;s120
+BRK12;1;1;1;Xylan;y;n;Unfermented;XYLC;Human;A;HumanA;XYLC HumanA;DUP12;s62
+BRK13;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Human;A;HumanA;XYLC EP2299 HumanA;DUP13;s133
+BRK14;1;1;1;Soybean + Seaweed;n;y;Fermented;EP2299;Human;A;HumanA;EP2299 HumanA;DUP14;s43
+BRK15;1;1;1;Soybean + Seaweed;n;y;Fermented;EP2299;Human;B;HumanB;EP2299 HumanB;DUP15;s45
+BRK16;1;1;1;Rapeseed + Seaweed;n;y;Fermented;EP1199;Human;C;HumanC;EP1199 HumanC;DUP16;s96
+BRK17;1;1;1;Rapeseed + Seaweed;n;y;Fermented;EP1199;Human;B;HumanB;EP1199 HumanB;DUP17;s94
+BRK18;1;1;1;Rapeseed + Seaweed;n;y;Fermented; EP1199;Human;C;HumanC; EP1199 HumanC;DUP18;s36
+BRK19;1;1;1;Rapeseed + Seaweed;n;y;Fermented;EP1199;Human;A;HumanA;EP1199 HumanA;DUP19;s92
+BRK20;1;1;1;Rapeseed + Seaweed;n;y;Fermented;EP1199;Human;B;HumanB;EP1199 HumanB;DUP17;s34
+BRK21;1;1;1;Rapeseed;n;n;Fermented;EP100;Human;A;HumanA;EP100 HumanA;DUP20;s26
+BRK22;1;1;1;Rapeseed;n;n;Fermented;EP100;Human;C;HumanC;EP100 HumanC;DUP21;s90
+BRK23;1;1;1;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;s1n
+BRK24;1;1;1;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;s1p
+BRK25;1;1;1;Soybean + Seaweed;n;y;Unfermented;C2299;Human;C;HumanC;C2299 HumanC;DUP24;s23
+BRK26;1;1;1;Soybean + Seaweed;n;y;Unfermented;C2299;Human;A;HumanA;C2299 HumanA;DUP25;s19
+BRK27;1;1;1;Soybean + Seaweed;n;y;Unfermented;C2299;Human;C;HumanC;C2299 HumanC;DUP24;s24
+BRK28;1;1;1;Rapeseed + Seaweed;n;y;Unfermented;C1199;Human;C;HumanC;C1199 HumanC;DUP26;s12
+BRK29;1;1;1;Soybean;n;n;Unfermented;C200;Human;C;HumanC;C200 HumanC;DUP27;s18
+BRK30;1;1;1;Rapeseed;n;n;Unfermented;C100;Human;C;HumanC;C100 HumanC;DUP28;s6
+BRK31;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP1199;Human;B;HumanB;XYL2 EP1199 HumanB;DUP29;s99
+BRK32;1;1;1;Xylan;y;n;Unfermented;XYL2;Human;A;HumanA;XYL2 HumanA;DUP30;s56
+BRK33;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP1199;Human;B;HumanB;XYL2 EP1199 HumanB;DUP29;s100
+BRK34;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYL2 EP100;Human;B;HumanB;XYL2 EP100 HumanB;DUP31;s93
+BRK35;1;1;1;Xylan;y;n;Unfermented;XYL2;Human;B;HumanB;XYL2 HumanB;DUP1;s58
+BRK36;1;1;1;Xylan;y;n;Unfermented;XYL1;Human;C;HumanC;XYL1 HumanC;DUP32;s53
+BRK37;1;1;1;Xylan;y;n;Unfermented;XYL1;Human;C;HumanC;XYL1 HumanC;DUP32;s54
+BRK38;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYL1 EP100;Human;C;HumanC;XYL1 EP100 HumanC;DUP33;s71
+BRK39;1;1;1;Xylan + Soybean;y;n;Fermented;XYL1 EP200;Human;C;HumanC;XYL1 EP200 HumanC;DUP34;s84
+BRK40;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;A;HumanA;XYL1 EP1199 HumanA;DUP35;s74
+BRK41;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYL1 EP2299;Human;A;HumanA;XYL1 EP2299 HumanA;DUP5;s86
+BRK42;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYL1 EP100;Human;B;HumanB;XYL1 EP100 HumanB;DUP36;s68
+BRK43;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYL1 EP100;Human;B;HumanB;XYL1 EP100 HumanB;DUP36;s70
+BRK44;1;1;1;Xylan;y;n;Unfermented;XYLC;Human;C;HumanC;XYLC HumanC;DUP37;s65
+BRK45;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYC EP100;Human;B;HumanB;XYC EP100 HumanB;DUP38;s118
+BRK46;1;1;1;Xylan;y;n;Unfermented;XYLC;Human;A;HumanA;XYLC HumanA;DUP12;s61
+BRK47;1;1;1;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;s2n
+BRK48;1;1;1;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;s2p
+BRK49;1;1;1;Xylan + Soybean;y;n;Fermented;XYLC EP200;Human;A;HumanA;XYLC EP200 HumanA;DUP39;s128
+BRK50;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP1199;Human;A;HumanA;XYLC EP1199 HumanA;DUP40;s122
+BRK51;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYC EP100;Human;C;HumanC;XYC EP100 HumanC;DUP11;s119
+BRK52;1;1;1;Soybean + Seaweed;n;y;Fermented;EP2299;Human;C;HumanC;EP2299 HumanC;DUP41;s48
+BRK53;1;1;1;Soybean;n;n;Fermented;EP200;Human;B;HumanB;EP200 HumanB;DUP42;s39
+BRK54;1;1;1;Rapeseed + Seaweed;n;y;Unfermented;C1199;Human;A;HumanA;C1199 HumanA;DUP43;s7
+BRK55;1;1;1;Xylan;y;n;Unfermented;XYL1;Human;A;HumanA;XYL1 HumanA;DUP44;s50
+BRK56;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP1199;Human;A;HumanA;XYL2 EP1199 HumanA;DUP45;s97
+BRK57;1;1;1;Xylan + Soybean;y;n;Fermented;XYL1 EP200;Human;B;HumanB;XYL1 EP200 HumanB;DUP46;s81
+BRK58;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;B;HumanB;XYL1 EP1199 HumanB;DUP4;s76
+BRK59;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;C;HumanC;XYL1 EP1199 HumanC;DUP8;s78
+BRK60;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYL1 EP2299;Human;B;HumanB;XYL1 EP2299 HumanB;DUP47;s88
+BRK61;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Human;A;HumanA;XYL1 EP1199 HumanA;DUP35;s73
+BRK62;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Human;B;HumanB;XYLC EP2299 HumanB;DUP48;s135
+BRK63;1;1;1;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP1199;Human;B;HumanB;XYLC EP1199 HumanB;DUP49;s124
+BRK64;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Human;C;HumanC;XYLC EP2299 HumanC;DUP50;s138
+BRK65;1;1;1;Xylan + Rapeseed;y;n;Fermented;XYC EP100;Human;B;HumanB;XYC EP100 HumanB;DUP38;s117
+BRK66;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Human;A;HumanA;XYLC EP2299 HumanA;DUP13;s134
+BRK67;1;1;1;Xylan;y;n;Unfermented;XYLC;Human;C;HumanC;XYLC HumanC;DUP37;s66
+BRK68;1;1;1;Soybean + Seaweed;n;y;Fermented;EP2299;Human;A;HumanA;EP2299 HumanA;DUP14;s49
+BRK69;1;1;1;Soybean + Seaweed;n;y;Fermented;EP2299;Human;B;HumanB;EP2299 HumanB;DUP15;s46
+BRK70;1;1;1;Soybean;n;n;Fermented;EP200;Human;A;HumanA;EP200 HumanA;DUP51;s37
+BRK71;1;1;1;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;s3n
+BRK72;1;1;1;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;s3p
+BRK73;1;1;1;Soybean;n;n;Fermented;EP200;Human;A;HumanA;EP200 HumanA;DUP51;s38
+BRK74;1;1;1;Rapeseed;n;y;Fermented; EP1199;Human;C;HumanC; EP1199 HumanC;DUP18;s35
+BRK75;1;1;1;Rapeseed;n;y;Fermented;EP1199;Human;A;HumanA;EP1199 HumanA;DUP19;s32
+BRK76;1;1;1;Rapeseed;n;n;Fermented;EP100;Human;A;HumanA;EP100 HumanA;DUP20;s25
+BRK77;1;1;1;Soybean;n;y;Unfermented;C2299;Human;A;HumanA;C2299 HumanA;DUP25;s20
+BRK78;1;1;1;Soybean;n;n;Unfermented;C200;Human;B;HumanB;C200 HumanB;DUP52;s15
+BRK79;1;1;1;Soybean;n;n;Unfermented;C200;Human;B;HumanB;C200 HumanB;DUP52;s16
+BRK80;1;1;1;Rapeseed;n;y;Unfermented;C1199;Human;C;HumanC;C1199 HumanC;DUP26;s11
+BRK81;1;1;1;Rapeseed;nn;y;Unfermented;C1199;Human;A;HumanA;C1199 HumanA;DUP43;s8
+BRK82;1;1;1;Rapeseed;n;n;Unfermented;C100;Human;B;HumanB;C100 HumanB;DUP53;s3
+BRK83;1;1;1;Rapeseed;n;n;Unfermented;C100;Human;A;HumanA;C100 HumanA;DUP54;s1
+BRK84;1;1;1;Xylan + Soybean;y;y;Fermented;XYL2 EP2299;Human;B;HumanB;XYL2 EP2299 HumanB;DUP55;s111
+BRK85;1;1;1;Xylan + Soybean;y;n;Fermented;XYL2 EP200;Human;A;HumanA;XYL2 EP200 HumanA;DUP56;s103
+BRK86;1;1;1;Xylan + Rapeseed;y;y;Fermented;XYL2 EP1199;Human;C;HumanC;XYL2 EP1199 HumanC;DUP57;s102
+BRK87;1;1;1;Xylan;y;n;Unfermented;XYL2;Human;C;HumanC;XYL2 HumanC;DUP58;s59
+BRK88;1;1;1;Xylan;y;n;Unfermented;XYL2;Human;A;HumanA;XYL2 HumanA;DUP30;s55
+BRK89;1;1;1;Xylan;y;n;Unfermented;XYL1;Human;B;HumanB;XYL1 HumanB;DUP59;s52
+BRK90;1;1;1;Xylan + Soybean;y;y;Fermented;XYL1 EP2299;Human;B;HumanB;XYL1 EP2299 HumanB;DUP47;s87
+BRK91;1;1;1;Xylan + Soybean;y;n;Fermented;XYL1 EP200;Human;B;HumanB;XYL1 EP200 HumanB;DUP46;s82
+BRK92;1;1;1;Xylan + Rapeseed;y;y;Fermented;XYLC EP1199;Human;A;HumanA;XYLC EP1199 HumanA;DUP40;s121
+BRK93;1;1;1;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Human;B;HumanB;XYLC EP2299 HumanB;DUP48;s136
+BRK94;1;1;1;;;n;Unfermented;PCRCON;PCRCON;PCRCON;PCRCONPCRCON;PCRCON PCRCONPCRCON;DUP60;sPCR C
+BRK95;1;1;1;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;s4n
+BRK96;1;1;1;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;s4p
+BRK97;2;1;2;Rapeseed + Seaweed;n;y;Fermented;EP1199;Pig;A;PigA;EP1199 PigA;DUP61;s169
+BRK98;2;1;2;Soybean + Seaweed;n;y;Fermented;EP2299;Pig;C;PigC;EP2299 PigC;DUP62;s185
+BRK99;2;1;2;Soybean;n;n;Unfermented;C200;Pig;B;PigB;C200 PigB;DUP63;s153
+BRK100;2;1;2;Rapeseed + Seaweed;n;y;Fermented;EP100;Pig;C;PigC;EP100 PigC;DUP64;s168
+BRK101;2;1;2;Rapeseed;n;n;Unfermented;C1199;Pig;A;PigA;C1199 PigA;DUP65;s146
+BRK102;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP100;Pig;C;PigC;XYL2 EP100 PigC;DUP66;s233
+BRK103;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP1199;Pig;C;PigC;XYL2 EP1199 PigC;DUP67;s239
+BRK104;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP200;Pig;A;PigA;XYL2 EP200 PigA;DUP68;s241
+BRK105;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP100;Pig;B;PigB;XYL1 EP100 PigB;DUP69;s208
+BRK106;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;B;PigB;XYL1 EP1199 PigB;DUP70;s214
+BRK107;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL1 EP2299;Pig;B;PigB;XYL1 EP2299 PigB;DUP71;s226
+BRK108;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;B;PigB;XYL1 EP1199 PigB;DUP70;s213
+BRK109;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;C;PigC;XYL1 EP1199 PigC;DUP72;s215
+BRK110;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP100;Pig;C;PigC;XYL1 EP100 PigC;DUP73;s210
+BRK111;2;1;2;Xylan + Soybean+ Seaweed;y;y;Fermented;XYL1 EP200;Pig;C;PigC;XYL1 EP200 PigC;DUP74;s221
+BRK112;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;C;PigC;XYL1 EP1199 PigC;DUP72;s216
+BRK113;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP1199;Pig;B;PigB;XYLC EP1199 PigB;DUP75;s261
+BRK114;2;1;2;Xylan + Rapeseed+ Seaweed;y;y;Fermented;XYLC EP1199;Pig;A;PigA;XYLC EP1199 PigA;DUP76;s260
+BRK115;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Pig;B;PigB;XYLC EP2299 PigB;DUP77;s273
+BRK116;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP200;Pig;B;PigB;XYLC EP200 PigB;DUP78;s267
+BRK117;2;1;2;Xylan + Rapeseed+ Seaweed;y;y;Fermented;XYLC EP1199;Pig;A;PigA;XYLC EP1199 PigA;DUP76;s259
+BRK118;2;1;2;Xylan + Soybean+ Seaweed;y;y;Fermented;XYLC EP2299;Pig;B;PigB;XYLC EP2299 PigB;DUP77;s274
+BRK119;2;1;2;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;sP3N
+BRK120;2;1;2;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;sP3P
+BRK121;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP100;Pig;C;PigC;XYLC EP100 PigC;DUP79;s258
+BRK122;2;1;2;Soybean+ Seaweed;n;y;Fermented;EP200;Pig;B;PigB;EP200 PigB;DUP80;s177
+BRK123;2;1;2;Soybean+ Seaweed;n;y;Fermented;EP200;Pig;B;PigB;EP200 PigB;DUP80;s178
+BRK124;2;1;2;Rapeseed+ Seaweed;n;y;Fermented;EP100;Pig;C;PigC;EP100 PigC;DUP64;s186
+BRK125;2;1;2;Rapeseed + Seaweed;n;y;Fermented;EP100;Pig;A;PigA;EP100 PigA;DUP81;s164
+BRK126;2;1;2;Soybean;n;n;Unfermented;C200;Pig;C;PigC;C200 PigC;DUP82;s156
+BRK127;2;1;2;Rapeseed;n;n;Unfermented;C100;Pig;B;PigB;C100 PigB;DUP83;s142
+BRK128;2;1;2;Rapeseed;n;n;Unfermented;C100;Pig;C;PigC;C100 PigC;DUP84;s143
+BRK129;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP1199;Pig;B;PigB;XYL2 EP1199 PigB;DUP85;s238
+BRK130;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP2299;Pig;B;PigB;XYL2 EP2299 PigB;DUP86;s250
+BRK131;2;1;2;Xylan + Rapeseed+ Seaweed;y;y;Fermented;XYL2 EP100;Pig;A;PigA;XYL2 EP100 PigA;DUP87;s229
+BRK132;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL2 EP100;Pig;B;PigB;XYL2 EP100 PigB;DUP88;s232
+BRK133;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL1 EP2299;Pig;C;PigC;XYL1 EP2299 PigC;DUP89;s227
+BRK134;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;A;PigA;XYL1 EP1199 PigA;DUP90;s211
+BRK135;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP1199;Pig;C;PigC;XYLC EP1199 PigC;DUP91;s264
+BRK136;2;1;2;Xylan + Rapeseed+ Seaweed;y;y;Fermented;XYLC EP100;Pig;A;PigA;XYLC EP100 PigA;DUP92;s254
+BRK137;2;1;2;Xylan + Rapeseed+ Seaweed;y;y;Fermented;XYLC EP1199;Pig;C;PigC;XYLC EP1199 PigC;DUP91;s263
+BRK138;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Pig;C;PigC;XYLC EP2299 PigC;DUP93;s276
+BRK139;2;1;2;Xylan;y;n;Unfermented;XYL Control;Pig;B;PigB;XYL Control PigB;DUP94;s202
+BRK140;2;1;2;Xylan;y;n;Unfermented;XYL Control;Pig;B;PigB;XYL Control PigB;DUP94;s201
+BRK141;2;1;2;Rapeseed;n;n;Unfermented;C100;Pig;A;PigA;C100 PigA;DUP95;s140
+BRK142;2;1;2;Rapeseed;n;n;Unfermented;C100;Pig;C;PigC;C100 PigC;DUP84;s144
+BRK143;2;1;2;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;sP4N
+BRK144;2;1;2;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;sP4P
+BRK145;2;1;2;Soybean;n;n;Unfermented;C2299;Pig;A;PigA;C2299 PigA;DUP96;s157
+BRK146;2;1;2;Rapeseed;n;n;Unfermented;C1199;Pig;C;PigC;C1199 PigC;DUP97;s149
+BRK147;2;1;2;Rapeseed;n;n;Unfermented;C1199;Pig;A;PigA;C1199 PigA;DUP65;s145
+BRK148;2;1;2;Rapeseed + Seaweed;n;y;Fermented;EP100;Pig;A;PigA;EP100 PigA;DUP81;s163
+BRK149;2;1;2;Soybean;n;y;Fermented;EP200;Pig;C;PigC;EP200 PigC;DUP98;s180
+BRK150;2;1;2;Soybean;n;y;Fermented;EP2299;Pig;B;PigB;EP2299 PigB;DUP99;s184
+BRK151;2;1;2;Soybean;n;y;Fermented;EP2299;Pig;B;PigB;EP2299 PigB;DUP99;s183
+BRK152;2;1;2;Xylan + Rapeseed;y;y;Fermented;XYL2 EP1199;Pig;A;PigA;XYL2 EP1199 PigA;DUP100;s236
+BRK153;2;1;2;Xylan;y;n;Unfermented;XYL2;Pig;C;PigC;XYL2 PigC;DUP101;s197
+BRK154;2;1;2;Xylan;y;n;Unfermented;XYL2;Pig;A;PigA;XYL2 PigA;DUP102;s193
+BRK155;2;1;2;Xylan + Rapeseed;y;y;Fermented;XYL2 EP100;Pig;C;PigC;XYL2 EP100 PigC;DUP66;s234
+BRK156;2;1;2;Xylan + Rapeseed;y;y;Fermented;XYL2 EP100;Pig;A;PigA;XYL2 EP100 PigA;DUP87;s230
+BRK157;2;1;2;Xylan + Rapeseed;y;y;Fermented;XYL2 EP1199;Pig;B;PigB;XYL2 EP1199 PigB;DUP85;s237
+BRK158;2;1;2;Soybean;n;y;Fermented;EP200;Pig;A;PigA;EP200 PigA;DUP103;s176
+BRK159;2;1;2;Soybean;n;n;Unfermented;C2299;Pig;B;PigB;C2299 PigB;DUP104;s160
+BRK160;2;1;2;Xylan + Rapeseed;y;y;Fermented;XYL1 EP100;Pig;A;PigA;XYL1 EP100 PigA;DUP105;s206
+BRK161;2;1;2;Soybean;n;y;Fermented;EP200;Pig;A;PigA;EP200 PigA;DUP103;s175
+BRK162;2;1;2;Xylan;y;n;Unfermented;XYLC;Pig;C;PigC;XYLC PigC;DUP106;s204
+BRK163;2;1;2;Xylan;y;n;Unfermented;XYL1;Pig;B;PigB;XYL1 PigB;DUP107;s189
+BRK164;2;1;2;Xylan + Soybean;y;y;Fermented;XYL1 EP2299;Pig;A;PigA;XYL1 EP2299 PigA;DUP108;s223
+BRK165;2;1;2;Xylan + Soybean;y;y;Fermented;XYLC EP2299;Pig;A;PigA;XYLC EP2299 PigA;DUP109;s271
+BRK166;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYLC EP200;Pig;A;PigA;XYLC EP200 PigA;DUP110;s266
+BRK167;2;1;2;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;sP5N
+BRK168;2;1;2;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;sP5P
+BRK169;2;1;2;Rapeseed;n;n;Unfermented;C1199;Pig;B;PigB;C1199 PigB;DUP111;s148
+BRK170;2;1;2;Soybean;n;n;Unfermented;C2299;Pig;C;PigC;C2299 PigC;DUP112;s162
+BRK171;2;1;2;Soybean;n;n;Unfermented;C2299;Pig;B;PigB;C2299 PigB;DUP104;s159
+BRK172;2;1;2;Soybean + Seaweed;n;y;Fermented;EP2299;Pig;A;PigA;EP2299 PigA;DUP113;s182
+BRK173;2;1;2;Rapeseed;n;n;Unfermented;C100;Pig;A;PigA;C100 PigA;DUP95;s139
+BRK174;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP200;Pig;C;PigC;XYL2 EP200 PigC;DUP114;s245
+BRK175;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP200;Pig;B;PigB;XYL2 EP200 PigB;DUP115;s244
+BRK176;2;1;2;Xylan;y;n;Unfermented;XYL1;Pig;C;PigC;XYL1 PigC;DUP116;s192
+BRK177;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP1199;Pig;A;PigA;XYL1 EP1199 PigA;DUP90;s212
+BRK178;2;1;2;Soybean + Seaweed;n;y;Fermented;EP2299;Pig;A;PigA;EP2299 PigA;DUP113;s181
+BRK179;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP2299;Pig;A;PigA;XYL2 EP2299 PigA;DUP117;s247
+BRK180;2;1;2;Xylan + Rapeseed + Seaweed;y;y;Fermented;XYL1 EP100;Pig;B;PigB;XYL1 EP100 PigB;DUP69;s207
+BRK181;2;1;2;Xylan;y;n;Unfermented;XYL1;Pig;B;PigB;XYL1 PigB;DUP107;s190
+BRK182;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP2299;Pig;A;PigA;XYLC EP2299 PigA;DUP109;s272
+BRK183;2;1;2;Soybean;n;n;Unfermented;C200;Pig;A;PigA;C200 PigA;DUP118;s151
+BRK184;2;1;2;Soybean;n;n;Unfermented;C200;Pig;C;PigC;C200 PigC;DUP82;s155
+BRK185;2;1;2;Soybean;n;n;Unfermented;C2299;Pig;C;PigC;C2299 PigC;DUP112;s161
+BRK186;2;1;2;Soybean + Seaweed;n;y;Fermented;EP200;Pig;C;PigC;EP200 PigC;DUP98;s179
+BRK187;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYL2 EP2299;Pig;C;PigC;XYL2 EP2299 PigC;DUP119;s251
+BRK188;2;1;2;Xylan + Soybean + Seaweed;y;y;Fermented;XYLC EP200;Pig;A;PigA;XYLC EP200 PigA;DUP110;s265
+BRK189;2;1;2;Soybean;n;n;Unfermented;C200;Pig;B;PigB;C200 PigB;DUP63;s154
+BRK190;2;1;2;;;n;Unfermented;PCRCON;PCRCON;PCRCON;PCRCONPCRCON;PCRCON PCRCONPCRCON;DUP60;sPCR C
+BRK191;2;1;2;;;n;Unfermented;NEGATIVE;NEGATIVE;NEGATIVE;NEGATIVENEGATIVE;NEGATIVE NEGATIVENEGATIVE;DUP22;sP6N
+BRK192;2;1;2;;;n;Unfermented;POSITIVE;POSTIVE;POSTIVE;POSTIVEPOSTIVE;POSITIVE POSTIVEPOSTIVE;DUP23;sP6P
