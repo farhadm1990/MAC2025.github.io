@@ -1,6 +1,6 @@
 <div style="display: flex; flex-direction: row;">
     <div style="flex:1;">
-        <img src="https://github.com/farhadm1990/MAC2025.github.io/blob/main/Ku-logo.png" alt="KU Logo" width="100px" height="100px" style="margin-right:100px;" />
+        <img src="https://https://github.com/farhadm1990/MAC2025/blob/main/Ku-logo.png" alt="KU Logo" width="100px" height="100px" style="margin-right:100px;" />
     </div>
 </div>
 
