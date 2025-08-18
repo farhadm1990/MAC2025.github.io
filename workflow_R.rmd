@@ -273,7 +273,6 @@ for(i in 1:length(pkg)){
 }
 
 
-
 ```
 
 ### Training on data wrangling, data tyding and data visualiziation by tidyverse package
@@ -613,12 +612,29 @@ geom_col(position = 'stack')
 
 [Illumina results](https://github.com/farhadm1990/MAC2025.github.io/tree/main/data/illumina/Results_MAC23_MAC96_S96)
 
+[Group 1](https://www.dropbox.com/scl/fo/vcj40oaeluwxhag2z0jjf/AEbYzljhVij5_rQrB9W_wi0?rlkey=lm7ua54by2vt1n5tui4y91wmy&st=pm8xbwpu&dl=0)
+
+<p><strong>Variable of interest:</strong> treatment</p>
+
+[Group 2](https://www.dropbox.com/scl/fo/tl0a0durimhzurmzu0xhm/AOCmOZOVa2efYU_90dZZFOU?rlkey=gk3uviln4cqlzo7o9edhybuzd&st=oczzfpvw&dl=0)
+
+<p><strong>Variable of interest:</strong> FERMENTED</p>
+
+[Group 3](https://www.dropbox.com/scl/fo/oorpsgwhp7wn6k9c0rl69/ABNCISAZDf8kJZzcf3hH_TI?rlkey=1vih5f4pzktv8swp21t2gwb4u&st=z89yn4uz&dl=0)
+
+<p><strong>Variable of interest:</strong> Treatment and Weeks </p>
+
+[Group 4](https://www.dropbox.com/scl/fo/9gtcbvwo0rk3ys0leupjq/AFZo9CA6m2PBS1W9pswHlNQ?rlkey=oikddrchoe43lfz7tgi4zzbmr&st=wwhi5f1b&dl=0)
+
+<p><strong>Variable of interest:</strong> Group</p>
+
+[Pooled fastq files (ONT single isolate)](https://www.dropbox.com/scl/fo/opm0tktrcy4a0nys76j0z/AGYQPO6V8in2LmKFMoidAXk?rlkey=ucbzyaiyfzflqcn940lfx9dq7&st=o568sfmt&dl=0)
 ## Contact
  
 
 
 <div style="text-align: left; font-size: 70px; color: darkmagenta; margin-top: 5%">
-<strong>**Author: farhad@food.ku.dk**</strong>
+<strong>**Author: farhad@unseenbio.com**</strong>
 </div>
 
 <div style="text-align: left; font-size: 70px; color: darkmagenta;">
