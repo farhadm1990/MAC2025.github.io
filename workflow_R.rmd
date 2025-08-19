@@ -622,7 +622,7 @@ geom_col(position = 'stack')
 
 [Group 3](https://www.dropbox.com/scl/fo/oorpsgwhp7wn6k9c0rl69/ABNCISAZDf8kJZzcf3hH_TI?rlkey=1vih5f4pzktv8swp21t2gwb4u&st=z89yn4uz&dl=0)
 
-<p><strong>Variable of interest:</strong> Treatment and Weeks </p>
+<p><strong>Variable of interest:</strong> Treatment and Weeks (also loaded via 'Load test data' button) </p>
 
 [Group 4](https://www.dropbox.com/scl/fo/9gtcbvwo0rk3ys0leupjq/AFZo9CA6m2PBS1W9pswHlNQ?rlkey=oikddrchoe43lfz7tgi4zzbmr&st=wwhi5f1b&dl=0)
 
