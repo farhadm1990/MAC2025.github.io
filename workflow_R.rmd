@@ -630,6 +630,11 @@ geom_col(position = 'stack')
 
 [Pooled fastq files (ONT single isolate)](https://www.dropbox.com/scl/fo/opm0tktrcy4a0nys76j0z/AGYQPO6V8in2LmKFMoidAXk?rlkey=ucbzyaiyfzflqcn940lfx9dq7&st=o568sfmt&dl=0)
 
+<br>
+
+[database of BAKTA](https://www.dropbox.com/scl/fo/s4dkklyd96vjwtrfgykdp/AKUmZWqPWMK_7sce6QhFbls?rlkey=v4kk33qk2jjubbpir997zj82s&st=rb25fmw2&dl=0)
+
+
 
 ## Contact
  
